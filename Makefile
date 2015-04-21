@@ -8,7 +8,7 @@ install:
 	$(MAKE) -C include install
 uninstall:
 	$(MAKE) -C src uninstall
-	$(MAKE) -C include uninstal
+	$(MAKE) -C include uninstall
 clean:
 	$(MAKE) -C src clean
 	$(MAKE) -C include clean

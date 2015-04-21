@@ -1,4 +1,4 @@
-#include "amjMemory.h"
+#include "../include/amjMemory.h"
 
 char msg[1000];
 

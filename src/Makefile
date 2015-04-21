@@ -8,7 +8,7 @@ CC=gcc $(CFLAGS)
 
 libamjMemory.a: $(AMJMEMORY_OBJ)
 	ar rc $@ $^
-install:
+install: libamjMemory.a
 	cp libamjMemory.a $(libdir)
 uninstall:
 	rm $(libdir)/libamjMemory.a
