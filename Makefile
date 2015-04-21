@@ -2,7 +2,7 @@ export prefix=~
 
 all:
 	$(MAKE) -C src 
-	$(MAKE) -c include
+	$(MAKE) -C include
 install:
 	$(MAKE) -C src install
 	$(MAKE) -C include install
