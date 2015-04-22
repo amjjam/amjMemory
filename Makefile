@@ -1,4 +1,8 @@
-export prefix=~
+#installation directory prefix
+ifndef prefix
+	export prefix=~
+endif
+export prefix
 
 all:
 	$(MAKE) -C src 
