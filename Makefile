@@ -4,10 +4,10 @@ ifndef prefix
 endif
 export prefix
 
-all:
-	$(MAKE) -C src 
-	$(MAKE) -C include
-install:
+build:
+	$(MAKE) -C src build
+	$(MAKE) -C include build
+install: build
 	$(MAKE) -C src install
 	$(MAKE) -C include install
 uninstall:

@@ -3,15 +3,23 @@ libdir=$(prefix)/lib
 AMJMEMORY_SRC=amjMemory.c
 AMJMEMORY_OBJ=$(AMJMEMORY_SRC:.c=.o)
 
-CFLAGS=-Wall -g
-CC=gcc $(CFLAGS)
+CFLAGS=-Wall -g -fPIC
+CC=gcc
+
+build: libamjMemory.a libamjMemory.so
 
 libamjMemory.a: $(AMJMEMORY_OBJ)
 	ar rc $@ $^
-install: libamjMemory.a
-	cp libamjMemory.a $(libdir)
+
+libamjMemory.so: $(AMJMEMORY_OBJ)
+	$(CC) -shared -Wl,-soname,$@ -o $@ $^
+
+install: build
+	cp libamjMemory.a libamjMemory.so $(libdir)
+
 uninstall:
-	rm $(libdir)/libamjMemory.a
+	- rm -f $(libdir)/libamjMemory.a $(libdir)/libamjMemory.so
+
 clean:
-	- rm libamjMemory.a $(AMJMEMORY_OBJ)
+	- rm -f libamjMemory.a libamjMemory.so $(AMJMEMORY_OBJ)
 

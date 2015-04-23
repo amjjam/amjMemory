@@ -1,10 +1,11 @@
 includedir=$(prefix)/include
 
-all: 
+build: 
 
 install:
 	cp amjMemory.h $(includedir)
-uninstall:
-	rm $(includedir)/amjMemory.h
-clean:
 
+uninstall:
+	- rm -f $(includedir)/amjMemory.h
+
+clean:
