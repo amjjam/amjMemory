@@ -14,7 +14,9 @@ libamjMemory.a: $(AMJMEMORY_OBJ)
 libamjMemory.so: $(AMJMEMORY_OBJ)
 	$(CC) -shared -Wl,-soname,$@ -o $@ $^
 
-install: build
+install: $(libdir)/libamjMemory.a $(libdir)/libamjMemory.so
+
+$(libdir)/libamjMemory.a $(libdir)/libamjMemory.so:
 	cp libamjMemory.a libamjMemory.so $(libdir)
 
 uninstall:

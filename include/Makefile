@@ -2,7 +2,9 @@ includedir=$(prefix)/include
 
 build: 
 
-install:
+install: $(includedir)/amjMemory.h
+
+$(includedir)/amjMemory.h: amjMemory.h
 	cp amjMemory.h $(includedir)
 
 uninstall:
